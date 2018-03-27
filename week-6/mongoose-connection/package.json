@@ -1,6 +1,6 @@
 {
     "name": "mongoose-connection",
-    "author": "Professor Krasso",
+    "author": "Matthew Howard",
     "private": true,
     "version": "0.0.1",
     "dependencies": {
