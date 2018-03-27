@@ -14,9 +14,8 @@
  var mongoose = require("mongoose");
 
  //mLab connection
- var mongoDB = "<mongo ds117469.mlab.com:17469/ems -u <dbuser> -p <dbpassword>";
- mongoose.connect(mongoDB, {
-     useMongoClient: true  
+ var mongoDB = "<ds117469.mlab.com:17469/ems>";
+ mongoose.connect(mongoDB, {  
  });
  mongoose.Promise = global.Promsie;
  var db = mongoose.connection;
