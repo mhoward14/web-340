@@ -14,9 +14,10 @@
  var mongoose = require("mongoose");
 
  //mLab connection
- var mongoDB = "<ds117469.mlab.com:17469/ems>";
+ var mongoDB = "mongodb://mhoward021:C0m3onUR3ds@ds117469.mlab.com:17469/ems";
  mongoose.connect(mongoDB, {  
- });
+    useMongoClient: true
+});
  mongoose.Promise = global.Promsie;
  var db = mongoose.connection;
  db.on("error", console.error.bind(console, "MongoDB connected error: "));
