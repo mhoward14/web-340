@@ -8,19 +8,14 @@
  */
  //start program 
 
- var express = require("express");
- var http = require("http");
- var logger = require("morgan");
- var mongoose = require("mongoose");
-
- //mLab connection
- var mongoDB = "mongodb://mhoward021:C0m3onUR3ds@ds117469.mlab.com:17469/ems";
- mongoose.connect(mongoDB, {  
+var mongoose = require("mongoose");
+var mongoDB = "mongodb://mhoward007:R3dsRUnit3d@ds117469.mlab.com:17469/ems";
+mongoose.connect(mongoDB, {
     useMongoClient: true
 });
- mongoose.Promise = global.Promsie;
- var db = mongoose.connection;
- db.on("error", console.error.bind(console, "MongoDB connected error: "));
- db.once("open", function() {
-     console.log("Application connected to mLab MongoDB instance.");
- });
+mongoose.Promise = global.Promise;
+var db = mongoose.connection;
+db.on("error", console.error.bind(console, "MongoDB connected error: "));
+db.once("open", function() {
+    console.log("Application connected to mLab MongoDB instance");
+});
