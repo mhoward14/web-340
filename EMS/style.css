@@ -1,0 +1,60 @@
+html{
+    font-size: 18px;
+}
+
+title{
+    font-family: 'Quicksand', sans-serif;
+}
+
+.heading{
+    color: whitesmoke;
+    padding: 20px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 45px;
+    text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.646);
+    text-align: center;  
+}
+
+.stitched{
+    padding: 20px;
+   margin: 10px;
+   background: dodgerblue;
+   color: #fff;
+   font-size: 21px;
+   font-weight: bold;
+   line-height: 1.3em;
+   border: 2px dashed #fff;
+   border-radius: 10px;
+   box-shadow: 0 0 0 4px #ff0030, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
+   text-shadow: -1px -1px #aa3030;
+   font-weight: normal;
+
+}
+
+.navbar-dark{
+    color: dodgerblue;
+}
+
+.bg-primary{
+    
+}
+.inner{
+    position: absolute;
+    right: 50px;
+    font-size: 35px;
+    color: black;
+}
+
+.container{
+    width: 100%;
+}
+
+body{
+    background: #667db6;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #667db6, #005aa7, #005aa7, #667db6);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #667db6, #005aa7, #005aa7, #667db6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */  
+    color: rgba(40, 40, 43, 0.926);
+    padding: 15px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 20px;
+}
