@@ -4,7 +4,6 @@ EMS (Milestone 1): User Interface Development
 22 March 2018
 */
 //start program
-
 var express = require("express");
 var http = require("http");
 var path = require("path");
@@ -16,7 +15,8 @@ app.set("view engine", "ejs");
 app.use(logger("short"));
 app.get("/", function (req, res) {
     res.render("index", {
-        title: "Home page"
+        title: "Home page",
+        message: "Welcome To My: EMS User Interface Development Landing Page"
     });
 });
 
