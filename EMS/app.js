@@ -10,12 +10,13 @@ var http = require("http");
 var path = require("path");
 var mongoose = require("mongoose");
 var logger = require("morgan");
+var helmet = require("helmet");
 var Employee = require("./models/employee");
+
 var app = express();
 
 var mongoDB = "mongodb://mhoward007:R3dsRUnit3d@ds117469.mlab.com:17469/ems";
 mongoose.connect(mongoDB, {
-    useMongoClient: true
 });
 
 mongoose.Promise = global.Promise;
@@ -33,10 +34,11 @@ var Employee = new Employee({
 app.set("views", path.resolve(__dirname, "views"));
 app.set("view engine", "ejs");
 app.use(logger("short"));
+app.use(helmet.xssFilter());
 app.get("/", function (req, res) {
     res.render("index", {
         title: "Home page",
-        message: "Welcome To My: EMS User Interface Development Landing Page"
+        message: "XSS Prevention Example"
     });
 });
 
