@@ -32,11 +32,6 @@ db.once("open", function(){
     console.log("Application connected to mLab MongoDB instance");
 });
 
-var Employee = new Employee({
-    firstName: "Matthew",
-    lastName: "Howard"
-});
-
 app.set("views", path.resolve(__dirname, "views"));
 app.set("view engine", "ejs");
 app.use(logger("short"));
@@ -61,9 +56,51 @@ app.get("/", function (request, response) {
     });
 });
 
+app.get("/new", function (request, render){
+    response.render("new", {
+        title: "New Employee"
+    });
+});
+
+app.get("/list", function(request, render){
+    Employee.find({}, function(error, employee){
+        if (error) throw (error);
+
+        response.render("list", {
+            title: "Employee List",
+            employee: employee
+        });
+    });
+});
+
 app.post("/process", function (request, response){
     console.log(request.body.txtName);
     response.redirect("/");
+});
+
+app.post("/process", function (request, response){
+    console.log(request.box.txtName);
+    if(!request.body.txtName){
+        response.status(400).send("Entries must have a name.");
+        return;
+    }
+
+    var employeeName = request.body.txtName;
+    console.log(employeeName);
+
+    var Employee = new Employee({
+        firstName: "Matthew",
+        lastName: "Howard"
+    });
+    
+    Employee.save(function(error){
+        if (error) throw error;
+        console.log(employeeName + "saved successfully!");
+        
+        response.redirect("/list");
+    
+    });    
+
 });
 
 http.createServer(app).listen(8080, function(){
