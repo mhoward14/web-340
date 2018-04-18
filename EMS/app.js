@@ -4,6 +4,7 @@ EMS (Milestone 1): User Interface Development
 22 March 2018
 Updated: 7 April 2018
 Updated: 10 April 2018
+Updated: 17 April 2018
 */
 //start program
 var http = require("http");
@@ -101,6 +102,25 @@ app.post("/process", function (request, response){
     
     });    
 
+});
+
+app.get("/view/:queryName", function (request, response){
+    var queryName = request.params.queryName
+    Employee.find({"name": queryName}, function(error, employees){
+        if (error) throw error;
+        console.log(employees);
+
+        if (employees.lenght >0){
+            response.render("view",{
+                title: "Employee Record",
+                employee: employees
+            })
+        }
+
+        else{
+            response.redirect ("/list")
+        }
+    });
 });
 
 http.createServer(app).listen(8080, function(){
