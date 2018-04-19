@@ -58,13 +58,13 @@ app.get("/", function (request, response) {
     });
 });
 
-app.get("/new", function (request, render){
+app.get("/new", function (request, response){
     response.render("new", {
         title: "New Employee"
     });
 });
 
-app.get("/list", function(request, render){
+app.get("/list", function(request, response){
     Employee.find({}, function(error, employee){
         if (error) throw (error);
 
@@ -73,11 +73,6 @@ app.get("/list", function(request, render){
             employee: employee
         });
     });
-});
-
-app.post("/process", function (request, response){
-    console.log(request.body.txtName);
-    response.redirect("/");
 });
 
 app.post("/process", function (request, response){
