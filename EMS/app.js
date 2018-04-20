@@ -99,9 +99,9 @@ app.post("/process", function (request, response){
 
 });
 
-app.get("/view/entry.firstName", function (request, response){
+app.get("/view/:queryName", function (request, response){
     var queryName = request.params.queryName
-    employee.find({"firstName": queryName}, function(error, employees){
+    Employee.find({"firstName": queryName}, function(error, employees){
         if (error) throw error;
         console.log(employees);
 
