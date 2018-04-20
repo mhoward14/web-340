@@ -19,6 +19,11 @@ title{
     color: dodgerblue;
 }
 
+.nav-link{
+    margin-left: 1in;
+    margin-right: 1in;
+}
+
 .inner{
     position: absolute;
     right: 50px;

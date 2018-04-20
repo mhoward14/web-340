@@ -54,7 +54,6 @@ app.use(function(request, response, next){
 app.get("/", function (request, response) {
     response.render("index", {
         title: "Home page",
-        message: "Employee Management System Example"
     });
 });
 
@@ -76,7 +75,7 @@ app.get("/list", function(request, response){
 });
 
 app.post("/process", function (request, response){
-    console.log(request.box.txtName);
+    
     if(!request.body.txtName){
         response.status(400).send("Entries must have a name.");
         return;
@@ -85,12 +84,12 @@ app.post("/process", function (request, response){
     var employeeName = request.body.txtName;
     console.log(employeeName);
 
-    var Employee = new Employee({
-        firstName: "Matthew",
+    var employee = new Employee({
+        firstName: employeeName,
         lastName: "Howard"
     });
     
-    Employee.save(function(error){
+    employee.save(function(error){
         if (error) throw error;
         console.log(employeeName + "saved successfully!");
         
@@ -100,13 +99,13 @@ app.post("/process", function (request, response){
 
 });
 
-app.get("/view/:queryName", function (request, response){
+app.get("/view/entry.firstName", function (request, response){
     var queryName = request.params.queryName
-    Employee.find({"name": queryName}, function(error, employees){
+    employee.find({"firstName": queryName}, function(error, employees){
         if (error) throw error;
         console.log(employees);
 
-        if (employees.lenght >0){
+        if (employees.length >0){
             response.render("view",{
                 title: "Employee Record",
                 employee: employees

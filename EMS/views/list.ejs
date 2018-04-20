@@ -10,7 +10,7 @@
 
 <div role="main" class="container" style="width: 50%;">
     <br/><br/>
-    <% if (employees.length) { %>
+    <% if (employee.length) { %>
     <h2>-- Employee Listing --</h2>
     <br /> 
     <a href="/new">Add New</a>
@@ -22,10 +22,10 @@
             </tr>
         </thead>
         <tbody>
-            <% employees.forEach(function (entry) { %>
+            <% employee.forEach(function (entry) { %>
                 <tr>
-                    <td><%= entry.name %></td>
-                    <td><a href="/view/<%= entry.name %>">VIEW</a></td>
+                    <td><%= entry.firstName %></td>
+                    <td><a href="/view/<%= entry.firstName %>">VIEW</a></td>
                 </tr>
         </tbody>
         <% }) %>
